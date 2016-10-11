@@ -1,0 +1,28 @@
+{
+  "name": "hapi-ldap",
+  "version": "0.0.1",
+  "description": "Hapi plugin for ldap authentication ",
+  "main": "index.js",
+  "scripts": {
+    "test": "lab.cmd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mickelindahl/hapi_ldap.git"
+  },
+  "keywords": [
+    "ldap",
+    "authentication"
+  ],
+  "author": "Mikael Lindahl <mikael.lindahl.07@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mickelindahl/hapi_ldap/issues"
+  },
+  "homepage": "https://github.com/mickelindahl/hapi_ldap#readme",
+  "dependencies": {
+    "activedirectory": "^0.7.2",
+    "ldapauth-fork": "^2.5.3",
+    "npm": "^3.10.8"
+  }
+}

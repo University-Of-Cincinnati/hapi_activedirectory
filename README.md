@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/mickelindahl/hapi_activedirectory.svg?branch=master)](https://travis-ci.org/mickelindahl/hapi_activedirectory)
-[![Coverage Status](https://coveralls.io/repos/github/mickelindahl/hapi_activedirectory/badge.svg?branch=master)](https://coveralls.io/github/mickelindahl/hapi_activedirectory?branch=master)
 
 Hapi activedirectory
 ====================

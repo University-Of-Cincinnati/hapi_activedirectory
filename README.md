@@ -20,10 +20,11 @@ const server = new Hapi.Server( { port: 3000 } );
 
 server.register( {
     register: require( 'hapi-activedirectory' ),
-    options: { 
-        status_code: "401"
-        redirect: "/login"
-    }
+    options:  {
+         url: 'ad.domain.com',
+         baseDN: 'DC=ad,DC=domain,DC=com',
+         domain: 'domain', //ldap domain e.g. ad.domain.com
+     };
 }, ( err ) => {
     // Oh no!
 } );

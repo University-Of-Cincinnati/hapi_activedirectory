@@ -21,7 +21,7 @@ const server = new Hapi.Server( { port: 3000 } );
 server.register( {
     register: require( 'hapi-activedirectory' ),
     options:  {
-         url: 'ad.domain.com',
+         url: 'ldap://ad.domain.com:389',
          baseDN: 'DC=ad,DC=domain,DC=com',
          domain: 'domain', //ldap domain e.g. ad.domain.com
      };
@@ -31,9 +31,9 @@ server.register( {
 ```
 
 - `options` Object or list of objects with the following keys
-    `url` Ldap server e.g. ldap://ad.domain.com:389,
-    `baseDN` base DN e.g. DC=ad,DC=domain,DC=com,
-    `domain` Ldap server domain e.g. domain
+    `url` Ldap server
+    `baseDN` base DN 
+    `domain` Ldap server domain 
     
 
 ## Methods

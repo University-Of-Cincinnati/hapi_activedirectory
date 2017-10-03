@@ -77,6 +77,37 @@ function findUser(user, password) {
 }
 
 /**
+ * Find group memberships
+ *
+ * - `user` sAMAcountName
+ * - `password` passsword for account
+ *
+ * @param {user|string}
+ * @param {user|string}
+ * @api public
+ */
+function getGroupMembershipForUser(user, password) {
+  return new Promise((resolve, reject) => {
+    let username = user + '@' + _config.domain;
+
+    let config = {
+      url: _config.url,
+      baseDN: _config.baseDN,
+      username: username,
+      password: password,
+    };
+
+    let ad = new ActiveDirectory(config);
+    ad.getGroupMembershipForUser(username, function(err, user) {
+      if (err) {
+        return reject(err);
+      }
+      resolve(user);
+    });
+  });
+}
+
+/**
  * Find group information
  *
  * - `user` sAMAcountName
@@ -98,11 +129,6 @@ function isUserMemberOf(user, password, group) {
     };
 
     let ad = new ActiveDirectory(config);
-    ad.getGroupMembershipForUser(username, function(err, user) {
-      if (err) {
-        return reject(err);
-      }
-    });
     ad.isUserMemberOf(username, group, function(err, user) {
       if (err) {
         return reject(err);
@@ -130,6 +156,11 @@ exports.register = function(server, options, next) {
     {
       name: 'ad.isUserMemberOf',
       method: isUserMemberOf,
+      options: {},
+    },
+    {
+      name: 'ad.getGroupMembershipForUser',
+      method: getGroupMembershipForUser,
       options: {},
     },
   ]);
